@@ -20,14 +20,14 @@ def Download():
   default_filename = data.default_filename
 
   try:
-    if isfile(data.default_filename):
+    if isfile('./downloads/' + data.default_filename):
       print('File already exists.')
     else:
       filename = input('Enter file [' + data.default_filename + ']: ')
-      print('Downloading "' + filename + '"...\n')
       if filename == '':
         filename = default_filename
-      data.download(filename=filename)
+      print('Downloading "' + filename + '"...\n')
+      data.download(filename=str('./downloads/' + filename))
       print('\n\nFile name : ' + filename)
       print('File size: ' + str(size) + 'Mb')
   except:
